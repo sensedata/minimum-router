@@ -1,0 +1,60 @@
+# Coverage directory used by tools like istanbul
+coverage
+
+# Generated
+dist
+node_modules
+*.js.map
+*.log
+
+# Security-sensitive environment
+.env
+
+# OS and editor files
+!.vscode/*.code-snippets
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/settings.json
+!.vscode/tasks.json
+._*
+.apdisk
+.AppleDB
+.AppleDesktop
+.AppleDouble
+.com.apple.timemachine.donotpresent
+.DocumentRevisions-V100
+.DS_Store
+.fseventsd
+.history/
+.LSOverride
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.vscode/*
+[Dd]esktop.ini
+*.cab
+*.lnk
+*.msi
+*.msix
+*.msm
+*.msp
+*.stackdump
+*.vsix
+$RECYCLE.BIN/
+ehthumbs_vista.db
+ehthumbs.db
+Icon
+Network Trash Folder
+Temporary Items
+Thumbs.db
+Thumbs.db:encryptable
+
+# Yarn-specific
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+!.yarn/cache

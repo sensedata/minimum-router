@@ -1,0 +1,33 @@
+{
+  "name": "@minimum/router",
+  "version": "0.0.0",
+  "description": "Minimum viable replacement for react-router for apps using react-redux.",
+  "license": "MIT",
+
+  "private": true,
+  "repository": "github:sensedata/minimum-router",
+  "bugs": "https://github.com/sensedata/minimum-router/issues",
+
+  "author": "SenseDataGroup <hello@sensedata.com> (http://www.sensedata.com/)",
+  "contributors": [
+    "Matthew Jones <matt@sensedata.com> (http://www.sensedata.com/about/us#matt)",
+    "Yuri Gadow <yuri@sensedata.com> (http://www.sensedata.com/about/us#yuri)"
+  ],
+
+  "main": "src/index.js",
+
+  "peerDependencies": {
+    "react": "^18.1",
+    "react-dom": "^18.1",
+    "redux": "^4.2",
+    "react-redux": "^8.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.14",
+    "jest": "^28.0",
+    "react": "^18.1",
+    "react-dom": "^18.1",
+    "redux": "^4.2",
+    "react-redux": "^8.0"
+  }
+}
