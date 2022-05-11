@@ -3,7 +3,7 @@ Minimum viable replacement for react-router for apps using react-redux.
 # Usage
 
 ```
-npm add @minimum/router
+npm add 'github:sensedata/minimum-router'
 ```
 
 The simplest use is paths with elements.
