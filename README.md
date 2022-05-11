@@ -1,10 +1,25 @@
-Minimum viable replacement for react-router for apps using react-redux.
+Minimum viable replacement of react-router for apps using react-redux.
 
 # Usage
 
 ```
 npm add 'github:sensedata/minimum-router'
 ```
+
+Setup Redux reduction at `router:` and store `@@minimum-router/navigate` actions'
+props and path.
+
+```javascript
+import {combineReducers} from "redux"
+import * as MinimumRouter from "@minimum/router"
+
+const reducer = combineReducers({
+    router: MinimumRouter.reducer,
+    [...]
+})
+```
+
+## Routes
 
 The simplest use is paths with elements.
 
@@ -19,6 +34,8 @@ return (
 )
 ```
 
+## Navigate
+
 To navigate, `dispatch()` an action.
 
 ```javascript
@@ -28,6 +45,7 @@ const dispatch = useDispatch()
 dispatch({type: "@@minimum-router/navigate", path: "/foo"})
 ```
 
+## Props
 Or create the action using the navigate helper.
 
 ```javascript
@@ -46,7 +64,7 @@ import {Routes, Route} from "@minimum/router"
 return (
   <Routes>
     <Route path="/foo" element={<Foo/>}/>
-    <Route path="/bar" element={<Bar bar1="baz1"}/>}/>
+    <Route path="/bar" element={<Bar bar1="baz1"/>}/>
   </Routes>
 )
 ```
@@ -68,6 +86,8 @@ const dispatch = useDispatch()
 dispatch(navigate("/foo", {bar2: "baz2"}))
 ```
 
+## Fallback
+
 \* is a special path that will match only if `<Routes/>` matches no other `<Route path/>`.
 
 ```jsx
@@ -82,9 +102,7 @@ return (
 )
 ```
 
-## Notes
+## Details
 
 * `<Routes/>` will match the first `<Route path/>` with the most left to right segment matches.
 * The `<Routes/>` element uses `React.cloneElement` on the `<Route element/>` of the match.
-
-# Development
