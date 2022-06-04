@@ -106,3 +106,10 @@ return (
 
 * `<Routes/>` will match the first `<Route path/>` with the most left to right segment matches.
 * The `<Routes/>` element uses `React.cloneElement` on the `<Route element/>` of the match.
+
+## Invalid States
+
+Typically invalid states will render an empty `<div>` with the CSS class "minimum-router" and:
+  - `no-routes` when the `<Routes>` element has no child `<Route>` elements.
+  - `no-router-path` with `no-fallback` when the Redux `state.router.path` is falsy and the routes have no fallback path, i.e., no `<Route path=`"*"` ...>`.
+  - `no-route-match` with `no-fallback` when the Redux `state.router.path` scores zero against all `<Route>` elements and the routes include no fallback path, i.e., no `<Route path=`"*"` ...>`.

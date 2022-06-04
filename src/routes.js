@@ -2,6 +2,10 @@ import React from "react";
 import {useSelector} from "react-redux";
 
 export function Routes(props) {
+  if (!(props?.children?.length > 0)) {
+    return React.createElement("div", {className: "minimum-router.empty-routes"});
+  }
+
   const router = useSelector((state) => state?.router);
   const pathParts = (router.path) ? router.path.split("/") : [];
   let bestMatch = props.children.reduce((r, c) => {
@@ -15,6 +19,15 @@ export function Routes(props) {
     bestMatch = {
       element: props.children.find((c) => c.props.path === "*")?.props.element
     };
+
+    if (!bestMatch.element && !(router?.path?.length > 0)) {
+      return React.createElement("div", {className: "minimum-router no-router-path no-fallback"});
+    }
   }
+
+  if (!bestMatch?.element) {
+    return React.createElement("div", {className: "minimum-router no-route-match"})
+  }
+
   return React.cloneElement(bestMatch?.element, router.props);
 }
