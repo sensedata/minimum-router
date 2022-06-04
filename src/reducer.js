@@ -1,4 +1,4 @@
-export default (state = {}, action) => {
+export function reducer(state = {}, action) {
   if (action?.type !== "@@minimum-router/navigate") {
     return state;
   }

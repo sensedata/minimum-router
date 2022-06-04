@@ -1,7 +1,7 @@
 import React from "react";
 import {useSelector} from "react-redux";
 
-export default (props) => {
+export function Routes(props) {
   const router = useSelector((state) => state?.router);
   const pathParts = (router.path) ? router.path.split("/") : [];
   let bestMatch = props.children.reduce((r, c) => {

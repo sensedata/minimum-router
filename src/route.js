@@ -1,3 +1,3 @@
 import React from "react";
 
-export default () => {}
+export function Route(props) {
