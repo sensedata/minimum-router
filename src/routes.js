@@ -7,9 +7,10 @@ export function Routes(props) {
   }
 
   const router = useSelector((state) => state?.router);
-  const pathParts = (router.path) ? router.path.split("/") : [];
+
+  const pathParts = pathSplit(router.path);
   let bestMatch = props.children.reduce((r, c) => {
-    const score = c.props.path.split("/").reduce((r2, p, i) => {
+    const score = pathSplit(c.props.path).reduce((r2, p, i) => {
       return (p === pathParts[i]) ? r2 + 1 : r2;
     }, 0);
     return (score > r.score) ? {score, element: c.props.element} : r
@@ -30,4 +31,8 @@ export function Routes(props) {
   }
 
   return React.cloneElement(bestMatch?.element, router.props);
+}
+
+function pathSplit(p) {
+  return (p) ? p.replace(/^\/(.)/, "$1").split("/") : [];
 }
