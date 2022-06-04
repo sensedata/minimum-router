@@ -14,7 +14,12 @@
     "Yuri Gadow <yuri@sensedata.com> (http://www.sensedata.com/about/us#yuri)"
   ],
 
+  "scripts": {
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest test"
+  },
+
   "main": "src/index.js",
+  "type": "module",
 
   "peerDependencies": {
     "react": "^18.1",
@@ -23,11 +28,13 @@
     "react-redux": "^8.0"
   },
   "devDependencies": {
-    "eslint": "^8.14",
+    "cross-env": "^7.0",
+    "eslint": "^8.17",
     "jest": "^28.0",
     "react": "^18.1",
     "react-dom": "^18.1",
     "redux": "^4.2",
-    "react-redux": "^8.0"
+    "react-redux": "^8.0",
+    "react-test-renderer": "^18.1"
   }
 }
