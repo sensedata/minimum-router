@@ -2,11 +2,11 @@ import React from "react";
 import {useSelector} from "react-redux";
 
 export function Routes(props) {
-  if (!(props?.children?.length > 0)) {
+  if (!props || !props.children || props.children.length <= 0) {
     return React.createElement("div", {className: "minimum-router.empty-routes"});
   }
 
-  const router = useSelector((state) => state?.router);
+  const router = useSelector(s => s.router);
 
   const pathParts = pathSplit(router.path);
   let bestMatch = props.children.reduce((r, c) => {
@@ -17,20 +17,20 @@ export function Routes(props) {
   }, {score: 0});
 
   if (bestMatch.score === 0) {
-    bestMatch = {
-      element: props.children.find((c) => c.props.path === "*")?.props.element
-    };
+    const found = props.children.find((c) => c.props.path === "*");
+    const element = found && found.props && found.props.element;
+    bestMatch = {element};
 
-    if (!bestMatch.element && !(router?.path?.length > 0)) {
+    if (!bestMatch.element && !(router && router.path && router.path.length > 0)) {
       return React.createElement("div", {className: "minimum-router no-router-path no-fallback"});
     }
   }
 
-  if (!bestMatch?.element) {
+  if (!bestMatch || !bestMatch.element) {
     return React.createElement("div", {className: "minimum-router no-route-match"})
   }
 
-  return React.cloneElement(bestMatch?.element, router.props);
+  return React.cloneElement(bestMatch.element, router.props);
 }
 
 function pathSplit(p) {

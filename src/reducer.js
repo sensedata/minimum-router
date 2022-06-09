@@ -1,5 +1,5 @@
 export function reducer(state = {}, action) {
-  if (action?.type !== "@@minimum-router/navigate") {
+  if (!action || action.type !== "@@minimum-router/navigate") {
     return state;
   }
 
