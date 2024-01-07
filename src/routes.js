@@ -30,7 +30,15 @@ export function Routes(props) {
     return React.createElement("div", {className: "minimum-router no-route-match"});
   }
 
-  return React.cloneElement(bestMatch?.element, router.props);
+  const routeElement = React.cloneElement(bestMatch?.element, router.props);
+  if (props.errorBoundary) {
+    return React.createElement(
+      props.errorBoundary,
+      {key: router.path},
+      routeElement
+    );
+  }
+  return routeElement;
 }
 
 function pathSplit(p) {

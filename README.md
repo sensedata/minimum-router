@@ -102,6 +102,24 @@ return (
 )
 ```
 
+## Error Boundary
+
+Optionally provide a React error boundary that will wrap each Route's element.
+To allow an error boundary to render without breaking routing.
+
+```jsx
+import {Routes, Route} from "@minimum/router"
+import {MyErrorBoundary} from "./my_error_boundary.jsx"
+
+return (
+  <Routes errorBoundary={MyErrorBoundary}>
+    <Route path="/foo" element={<Foo/>}/>
+    <Route path="/bar" element={<Bar/>}/>
+    <Route path="*" element={<Baz/>}/>
+  </Routes>
+)
+```
+
 ## Details
 
 * `<Routes/>` will match the first `<Route path/>` with the most left to right segment matches.
