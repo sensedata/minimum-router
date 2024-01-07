@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.0
+
+* Add optional errorBoundary to Routes, which will wrap all Route instances.
+* Update dependencies.
+* Delint.
+
 ## 1.0.0
 
 ### Breaking Changes
