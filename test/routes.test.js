@@ -1,13 +1,12 @@
 import React from "react";
 import {Provider} from "react-redux";
-import testRenderer from 'react-test-renderer';
+import testRenderer from "react-test-renderer";
 import {createStore, combineReducers} from "redux";
 
 import {navigate} from "../src/navigate.js";
 import {reducer} from "../src/reducer.js";
 import {Route} from "../src/route.js";
 import {Routes} from "../src/routes.js";
-
 
 
 describe("<Routes>", () => {
@@ -54,7 +53,7 @@ describe("<Routes>", () => {
       expect(snapshot.props.className).toContain("minimum-router");
       expect(snapshot.props.className).toContain("empty-routes");
     });
-  })
+  });
 
   describe("without a fallback", () => {
     describe("with a couple routes", () => {
@@ -83,7 +82,7 @@ describe("<Routes>", () => {
           expect(snapshot.props.className).toContain("no-router-path");
           expect(snapshot.props.className).toContain("no-fallback");
         });
-      })
+      });
 
       describe("given an unmatching router.path", () => {
         let snapshot;
@@ -107,7 +106,7 @@ describe("<Routes>", () => {
           expect(snapshot.props.className).toContain("minimum-router");
           expect(snapshot.props.className).toContain("no-route-match");
         });
-      })
+      });
 
       describe("given a matching router.path", () => {
         it("renders the matching element", async () => {
@@ -117,7 +116,7 @@ describe("<Routes>", () => {
           const snapshot = routesRenderer.toJSON();
           expect(snapshot.props.id).toBe("test1");
         });
-      })
+      });
 
       describe("given a matching root path", () => {
         it("renders the matching element", async () => {
@@ -127,9 +126,9 @@ describe("<Routes>", () => {
           const snapshot = routesRenderer.toJSON();
           expect(snapshot.props.id).toBe("root");
         });
-      })
-    })
-  })
+      });
+    });
+  });
 
   describe("with a fallback", () => {
     describe("with a couple routes", () => {
@@ -144,7 +143,7 @@ describe("<Routes>", () => {
           const snapshot = routesRenderer.toJSON();
           expect(snapshot.props.id).toBe("fallback");
         });
-      })
+      });
 
       describe("given an unmatching router.path", () => {
         it("renders the fallback", async () => {
@@ -154,7 +153,7 @@ describe("<Routes>", () => {
           const snapshot = routesRenderer.toJSON();
           expect(snapshot.props.id).toBe("fallback");
         });
-      })
+      });
 
       describe("given a matching router.path", () => {
         it("renders the matching element", async () => {
@@ -164,7 +163,7 @@ describe("<Routes>", () => {
           const snapshot = routesRenderer.toJSON();
           expect(snapshot.props.id).toBe("test1");
         });
-      })
+      });
 
       describe("given a matching root path", () => {
         it("renders the matching element", async () => {
@@ -174,7 +173,7 @@ describe("<Routes>", () => {
           const snapshot = routesRenderer.toJSON();
           expect(snapshot.props.id).toBe("root");
         });
-      })
-    })
-  })
+      });
+    });
+  });
 });

@@ -2,7 +2,7 @@ import React from "react";
 import {useSelector} from "react-redux";
 
 export function Routes(props) {
-  if (!(props?.children?.length > 0)) {
+  if (props?.children?.length <= 0) {
     return React.createElement("div", {className: "minimum-router.empty-routes"});
   }
 
@@ -13,7 +13,7 @@ export function Routes(props) {
     const score = pathSplit(c.props.path).reduce((r2, p, i) => {
       return (p === pathParts[i]) ? r2 + 1 : r2;
     }, 0);
-    return (score > r.score) ? {score, element: c.props.element} : r
+    return (score > r.score) ? {score, element: c.props.element} : r;
   }, {score: 0});
 
   if (bestMatch.score === 0) {
@@ -27,7 +27,7 @@ export function Routes(props) {
   }
 
   if (!bestMatch?.element) {
-    return React.createElement("div", {className: "minimum-router no-route-match"})
+    return React.createElement("div", {className: "minimum-router no-route-match"});
   }
 
   return React.cloneElement(bestMatch?.element, router.props);

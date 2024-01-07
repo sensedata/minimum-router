@@ -2,8 +2,8 @@
   "name": "@minimum/router",
   "version": "1.0.0",
   "description": "Minimum viable replacement for react-router for apps using react-redux.",
-  "license": "MIT",
 
+  "license": "MIT",
   "private": true,
   "repository": "github:sensedata/minimum-router",
   "bugs": "https://github.com/sensedata/minimum-router/issues",
@@ -15,6 +15,7 @@
   ],
 
   "scripts": {
+    "lint": "cross-env NODE_OPTIONS=--experimental-vm-modules eslint src test",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest test"
   },
 
@@ -24,17 +25,20 @@
   "peerDependencies": {
     "react": "^18.2",
     "react-dom": "^18.2",
-    "redux": "^5.0",
-    "react-redux": "^9.0"
+    "react-redux": "^9.0",
+    "redux": "^5.0"
   },
+
   "devDependencies": {
     "cross-env": "^7.0",
     "eslint": "^8.56",
+    "eslint-plugin-jest": "^27.6",
+    "eslint-plugin-react": "^7.33",
     "jest": "^29.7",
     "react": "^18.2",
     "react-dom": "^18.2",
-    "redux": "^5.0",
     "react-redux": "^9.0",
-    "react-test-renderer": "^18.2"
+    "react-test-renderer": "^18.2",
+    "redux": "^5.0"
   }
 }
